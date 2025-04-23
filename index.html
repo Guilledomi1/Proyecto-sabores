@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabores del Mundo | Descubre sabores extraordinarios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Estilos básicos para reemplazar el archivo styles.css faltante */
+    .nav-link.active {
+      color: #f59e0b;
+      font-weight: 600;
+    }
+    .recipe-card {
+      transition: transform 0.3s ease;
+    }
+    .recipe-card:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+  <!-- Barra de navegación premium -->
+  <nav class="bg-gray-900 text-white shadow-xl sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+          <i class="fas fa-utensils text-2xl text-amber-400"></i>
+          <a href="index.html" class="text-2xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Sabores del mundo</a>
+        </div>
+
+        <!-- Menú principal -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link active flex items-center py-2 px-1 border-b-2 border-amber-400 font-medium">
+            <i class="fas fa-home mr-2"></i> Inicio
+          </a>
+          <a href="recetas.html" class="nav-link flex items-center py-2 px-1 hover:text-amber-300 transition-colors">
+            <i class="fas fa-book-open mr-2"></i> Recetas
+          </a>
+          <a href="login.html" class="nav-link flex items-center py-2 px-1 hover:text-amber-300 transition-colors">
+            <i class="fas fa-user mr-2"></i> Mi Cuenta
+          </a>
+          <div class="relative">
+            <button id="search-btn" class="flex items-center space-x-1 bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition-colors">
+              <i class="fas fa-search"></i>
+              <span class="hidden lg:inline">Buscar</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Menú móvil -->
+        <button id="menu-btn" class="md:hidden focus:outline-none text-2xl">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil desplegable -->
+    <div id="mobile-menu" class="md:hidden hidden bg-gray-800 px-6 py-4">
+      <div class="flex flex-col space-y-4">
+        <a href="index.html" class="nav-link active flex items-center py-2 border-b border-gray-700">
+          <i class="fas fa-home mr-3"></i> Inicio
+        </a>
+        <a href="recetas.html" class="nav-link flex items-center py-2 border-b border-gray-700">
+          <i class="fas fa-book-open mr-3"></i> Recetas
+        </a>
+        <a href="login.html" class="nav-link flex items-center py-2">
+          <i class="fas fa-user mr-3"></i> Mi Cuenta
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative bg-gray-900 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="container mx-auto px-6 py-24 relative z-10">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Descubre el arte de la cocina internacional</h1>
+        <p class="text-xl mb-8 text-gray-300">Más de 1,200 recetas exclusivas con valoraciones reales de nuestra comunidad</p>
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <a href="recetas.html" class="bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-lg font-bold text-center transition-colors">
+            Explorar Recetas
+          </a>
+      
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1580&q=80')] bg-cover bg-center"></div>
+  </header>
+
+  <!-- Recetas Destacadas -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="flex justify-between items-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900">
+          <span class="border-b-4 border-amber-400 pb-2">Recetas</span> Destacadas
+        </h2>
+        <a href="recetas.html" class="text-amber-600 hover:text-amber-700 font-medium flex items-center">
+          Ver todas <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+
+      <!-- Carrusel de recetas -->
+      <div class="relative">
+        <div class="recipe-carousel grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Receta 1 -->
+          <div class="recipe-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+            <div class="relative">
+              <img src="images/Pescado a la limeña.jpg" alt="Pescado a la limeña" class="w-full h-64 object-cover">
+              <div class="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                Popular
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Latinoamericana</span>
+                <div class="flex items-center">
+                  <i class="fas fa-star text-amber-400"></i>
+                  <span class="ml-1 text-gray-700">4.8</span>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-gray-900">Pescado a la limeña</h3>
+              <p class="text-gray-600 mb-4">Marinado con limón, cebolla morada y ají limo. Una explosión de sabores peruanos.</p>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center text-gray-500 text-sm">
+                  <i class="fas fa-clock mr-1"></i>
+                  <span>35 min</span>
+                </div>
+                <a href="receta-1.html" class="text-amber-600 hover:text-amber-700 font-medium flex items-center">
+                  Ver receta <i class="fas fa-chevron-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Receta 2 -->
+          <div class="recipe-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+            <div class="relative">
+              <img src="images/Pasta carbonara.jpg" alt="Pasta carbonara" class="w-full h-64 object-cover">
+              <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                Nuevo
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Italiana</span>
+                <div class="flex items-center">
+                  <i class="fas fa-star text-amber-400"></i>
+                  <span class="ml-1 text-gray-700">4.6</span>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-gray-900">Pasta Carbonara Auténtica</h3>
+              <p class="text-gray-600 mb-4">La receta tradicional romana con huevo, guanciale y pimienta negra.</p>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center text-gray-500 text-sm">
+                  <i class="fas fa-clock mr-1"></i>
+                  <span>25 min</span>
+                </div>
+                <a href="receta-2.html" class="text-amber-600 hover:text-amber-700 font-medium flex items-center">
+                  Ver receta <i class="fas fa-chevron-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Receta 3 -->
+          <div class="recipe-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+            <div class="relative">
+              <img src="images/Sushi variado.jpg" alt="Sushi variado" class="w-full h-64 object-cover">
+              <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                Saludable
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">Japonesa</span>
+                <div class="flex items-center">
+                  <i class="fas fa-star text-amber-400"></i>
+                  <span class="ml-1 text-gray-700">4.9</span>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-gray-900">Sushi Variado Premium</h3>
+              <p class="text-gray-600 mb-4">Selección de nigiri, maki y sashimi con ingredientes de primera calidad.</p>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center text-gray-500 text-sm">
+                  <i class="fas fa-clock mr-1"></i>
+                  <span>50 min</span>
+                </div>
+                <a href="receta-3.html" class="text-amber-600 hover:text-amber-700 font-medium flex items-center">
+                  Ver receta <i class="fas fa-chevron-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categorías -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center text-gray-900">
+        <span class="border-b-4 border-amber-400 pb-2">Explora</span> por Categorías
+      </h2>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <a href="recetas.html" class="category-card bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          <div class="w-16 h-16 mx-auto mb-4 bg-amber-100 rounded-full flex items-center justify-center text-amber-600">
+            <i class="fas fa-utensils text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-1">Italiana</h3>
+          <p class="text-gray-600 text-sm">78 recetas</p>
+        </a>
+        
+        <a href="recetas.html" class="category-card bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          <div class="w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full flex items-center justify-center text-red-600">
+            <i class="fas fa-pepper-hot text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-1">Mexicana</h3>
+          <p class="text-gray-600 text-sm">45 recetas</p>
+        </a>
+        
+        <a href="recetas.html" class="category-card bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          <div class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
+            <i class="fas fa-fish text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-1">Japonesa</h3>
+          <p class="text-gray-600 text-sm">36 recetas</p>
+        </a>
+        
+        <a href="recetas.html" class="category-card bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+            <i class="fas fa-seedling text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-1">Vegana</h3>
+          <p class="text-gray-600 text-sm">52 recetas</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center text-gray-900">
+        <span class="border-b-4 border-amber-400 pb-2">Lo que</span> dicen nuestros usuarios
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 rounded-xl p-6 shadow-md">
+          <div class="flex text-amber-400 mb-4">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700 mb-6">"Gracias a Sabores del Mundo he descubierto recetas increíbles que ahora son parte de nuestras comidas familiares. La explicación paso a paso hace que sea muy fácil seguir las recetas."</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold mr-4">
+              M
+            </div>
+            <div>
+              <h4 class="font-bold">María García</h4>
+              <p class="text-gray-500 text-sm">Madrid, España</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-gray-50 rounded-xl p-6 shadow-md">
+          <div class="flex text-amber-400 mb-4">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700 mb-6">"Como principiante en la cocina, esta web ha sido mi salvación. Las recetas son claras y los consejos de los chefs son muy útiles. He impresionado a mis amigos con platos que nunca pensé que podría preparar."</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold mr-4">
+              J
+            </div>
+            <div>
+              <h4 class="font-bold">Juan Pérez</h4>
+              <p class="text-gray-500 text-sm">Barcelona, España</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-gray-50 rounded-xl p-6 shadow-md">
+          <div class="flex text-amber-400 mb-4">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p class="text-gray-700 mb-6">"Lo que más me gusta es la variedad de cocinas internacionales. He podido explorar sabores de todo el mundo sin salir de mi cocina. La sección de cocina japonesa es mi favorita."</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold mr-4">
+              L
+            </div>
+            <div>
+              <h4 class="font-bold">Laura Fernández</h4>
+              <p class="text-gray-500 text-sm">Valencia, España</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="py-16 bg-amber-500 text-white">
+    <div class="container mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">Únete a nuestra comunidad culinaria</h2>
+        <p class="text-lg mb-8 opacity-90">Recibe semanalmente nuevas recetas, consejos de cocina y ofertas exclusivas directamente en tu correo.</p>
+        
+        <form id="newsletter-form" class="flex flex-col sm:flex-row gap-4">
+          <input type="email" placeholder="Tu correo electrónico" class="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-white" required>
+          <button type="submit" class="bg-gray-900 hover:bg-gray-800 px-6 py-3 rounded-lg font-bold transition-colors whitespace-nowrap">
+            Suscribirme
+          </button>
+        </form>
+        
+        <p class="mt-4 text-sm opacity-80">Respetamos tu privacidad. Puedes darte de baja en cualquier momento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white pt-16 pb-8">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Sabores del Mundo</h3>
+          <p class="text-gray-400">Descubre la riqueza culinaria de diferentes culturas a través de nuestras recetas auténticas y consejos de expertos.</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Enlaces rápidos</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-amber-400 transition-colors">Inicio</a></li>
+            <li><a href="recetas.html" class="text-gray-400 hover:text-amber-400 transition-colors">Recetas</a></li>
+            <li><a href="login.html" class="text-gray-400 hover:text-amber-400 transition-colors">Mi Cuenta</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-colors">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Categorías</h4>
+          <ul class="space-y-2">
+            <li><a href="recetas.html" class="text-gray-400 hover:text-amber-400 transition-colors">Italiana</a></li>
+            <li><a href="recetas.html" class="text-gray-400 hover:text-amber-400 transition-colors">Mexicana</a></li>
+            <li><a href="recetas.html" class="text-gray-400 hover:text-amber-400 transition-colors">Japonesa</a></li>
+            <li><a href="recetas.html" class="text-gray-400 hover:text-amber-400 transition-colors">Vegana</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Síguenos</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors text-xl">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors text-xl">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors text-xl">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors text-xl">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500">© 2025 Sabores del Mundo. Todos los derechos reservados.</p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a href="#" class="text-gray-500 hover:text-gray-400 transition-colors">Política de privacidad</a>
+          <a href="#" class="text-gray-500 hover:text-gray-400 transition-colors">Términos de uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript para la funcionalidad -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Menú móvil
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+          mobileMenu.classList.toggle('hidden');
+          // Cambiar el icono del botón
+          const icon = menuBtn.querySelector('i');
+          if (icon.classList.contains('fa-bars')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+          } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      }
+
+      // Botón de búsqueda
+      const searchBtn = document.getElementById('search-btn');
+      if (searchBtn) {
+        searchBtn.addEventListener('click', function() {
+          alert('Función de búsqueda activada');
+        });
+      }
+
+      // Botón de ver video
+      const watchVideoBtn = document.getElementById('watch-video-btn');
+      if (watchVideoBtn) {
+        watchVideoBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          alert('Reproduciendo video de presentación (simulación)');
+        });
+      }
+
+      // Formulario de newsletter
+      const newsletterForm = document.getElementById('newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const email = this.querySelector('input[type="email"]').value;
+          alert(`¡Gracias por suscribirte con ${email}! Recibirás nuestras actualizaciones semanales.`);
+          this.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

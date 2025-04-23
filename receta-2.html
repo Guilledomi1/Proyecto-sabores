@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabores del Mundo | Pasta Carbonara Auténtica</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Estilos básicos */
+    .nav-link.active {
+      color: #f59e0b;
+      font-weight: 600;
+    }
+    .ingredient-item {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .ingredient-item:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      height: 0.75rem;
+      width: 0.75rem;
+      background-color: #f59e0b;
+      border-radius: 50%;
+    }
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      background-color: #f59e0b;
+      color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+  <!-- Barra de navegación oscura -->
+  <nav class="bg-gray-900 text-white shadow-xl sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+          <i class="fas fa-utensils text-2xl text-amber-400"></i>
+          <a href="index.html" class="text-2xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Sabores del mundo</a>
+        </div>
+
+        <!-- Menú principal -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link flex items-center py-2 px-1 hover:text-amber-300 transition-colors">
+            <i class="fas fa-home mr-2"></i> Inicio
+          </a>
+          <a href="recetas.html" class="nav-link active flex items-center py-2 px-1 border-b-2 border-amber-400 font-medium">
+            <i class="fas fa-book-open mr-2"></i> Recetas
+          </a>
+          <a href="login.html" class="nav-link flex items-center py-2 px-1 hover:text-amber-300 transition-colors">
+            <i class="fas fa-user mr-2"></i> Mi Cuenta
+          </a>
+          <div class="relative">
+            <button id="search-btn" class="flex items-center space-x-1 bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition-colors">
+              <i class="fas fa-search"></i>
+              <span class="hidden lg:inline">Buscar</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Menú móvil -->
+        <button id="menu-btn" class="md:hidden focus:outline-none text-2xl">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil desplegable -->
+    <div id="mobile-menu" class="md:hidden hidden bg-gray-800 px-6 py-4">
+      <div class="flex flex-col space-y-4">
+        <a href="index.html" class="nav-link flex items-center py-2 border-b border-gray-700">
+          <i class="fas fa-home mr-3"></i> Inicio
+        </a>
+        <a href="recetas.html" class="nav-link active flex items-center py-2 border-b border-gray-700">
+          <i class="fas fa-book-open mr-3"></i> Recetas
+        </a>
+        <a href="login.html" class="nav-link flex items-center py-2">
+          <i class="fas fa-user mr-3"></i> Mi Cuenta
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="container mx-auto px-6 py-8">
+    <!-- Migas de pan -->
+    <div class="text-sm text-gray-500 mb-6">
+      <a href="index.html" class="hover:text-amber-600">Inicio</a> &gt; 
+      <a href="recetas.html" class="hover:text-amber-600">Recetas</a> &gt; 
+      <span class="text-gray-700">Pasta Carbonara Auténtica</span>
+    </div>
+
+    <!-- Cabecera de la receta -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+      <div class="md:flex">
+        <div class="md:w-1/2">
+          <img src="images/Pasta carbonara.jpg" alt="Pasta Carbonara" class="w-full h-96 object-cover">
+        </div>
+        <div class="p-8 md:w-1/2">
+          <div class="flex items-center mb-4">
+            <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2">Italiana</span>
+            <span class="bg-red-500 text-white text-xs px-2 py-1 rounded">Nuevo</span>
+            <div class="ml-auto flex items-center">
+              <i class="fas fa-star text-amber-400"></i>
+              <span class="ml-1 text-gray-700 font-bold">4.6</span>
+              <span class="text-gray-500 text-sm ml-1">(98 valoraciones)</span>
+            </div>
+          </div>
+          <h1 class="text-3xl font-bold text-gray-900 mb-4">Pasta Carbonara Auténtica</h1>
+          <p class="text-gray-600 mb-6">La verdadera carbonara romana, sin nata y con ingredientes tradicionales. Este plato clásico italiano combina la cremosidad del huevo con el sabor intenso del guanciale y el queso pecorino para crear una pasta sencilla pero extraordinaria.</p>
+          
+          <div class="flex flex-wrap gap-4 mb-6">
+            <div class="flex items-center text-gray-700">
+              <i class="fas fa-clock text-amber-500 mr-2"></i>
+              <span>Tiempo: <strong>25 min</strong></span>
+            </div>
+            <div class="flex items-center text-gray-700">
+              <i class="fas fa-utensils text-amber-500 mr-2"></i>
+              <span>Dificultad: <strong>Media</strong></span>
+            </div>
+            <div class="flex items-center text-gray-700">
+              <i class="fas fa-users text-amber-500 mr-2"></i>
+              <span>Porciones: <strong>4</strong></span>
+            </div>
+          </div>
+          
+          <div class="flex space-x-4">
+            <button id="save-recipe" class="flex items-center bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg transition-colors">
+              <i class="far fa-bookmark mr-2"></i> Guardar
+            </button>
+            <button id="share-recipe" class="flex items-center bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg transition-colors">
+              <i class="fas fa-share-alt mr-2"></i> Compartir
+            </button>
+            <button id="print-recipe" class="flex items-center bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg transition-colors">
+              <i class="fas fa-print mr-2"></i> Imprimir
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenido de la receta -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Columna izquierda: Ingredientes -->
+      <div class="lg:col-span-1">
+        <div class="bg-white rounded-xl shadow-md p-6 sticky top-24">
+          <h2 class="text-xl font-bold mb-6 pb-2 border-b border-gray-200">Ingredientes</h2>
+          <ul class="space-y-4">
+            <li class="ingredient-item">350g de espaguetis</li>
+            <li class="ingredient-item">150g de guanciale (o panceta si no encuentras guanciale)</li>
+            <li class="ingredient-item">3 huevos grandes enteros</li>
+            <li class="ingredient-item">1 yema de huevo adicional</li>
+            <li class="ingredient-item">80g de queso Pecorino Romano rallado</li>
+            <li class="ingredient-item">Pimienta negra recién molida</li>
+            <li class="ingredient-item">Sal para el agua de la pasta</li>
+          </ul>
+          
+          <div class="mt-8">
+            <button id="adjust-servings" class="w-full bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-bold transition-colors">
+              Ajustar porciones
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Columna derecha: Preparación -->
+      <div class="lg:col-span-2">
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+          <h2 class="text-xl font-bold mb-6 pb-2 border-b border-gray-200">Preparación</h2>
+          
+          <div class="space-y-6">
+            <div class="flex">
+              <div class="step-number">1</div>
+              <p>Pon a hervir una olla grande con agua. Cuando hierva, añade sal generosamente (el agua debe saber salada como el mar).</p>
+            </div>
+            
+            <div class="flex">
+              <div class="step-number">2</div>
+              <p>Mientras tanto, corta el guanciale en tiras pequeñas o cubos. Calienta una sartén grande a fuego medio y añade el guanciale. No necesitas añadir aceite, ya que el guanciale soltará su propia grasa. Cocina hasta que esté crujiente pero no demasiado seco, unos 5-7 minutos.</p>
+            </div>
+            
+            <div class="flex">
+              <div class="step-number">3</div>
+              <p>En un bol, bate los huevos enteros y la yema adicional. Añade el queso Pecorino rallado y una generosa cantidad de pimienta negra recién molida. Mezcla bien hasta obtener una crema homogénea.</p>
+            </div>
+            
+            <div class="flex">
+              <div class="step-number">4</div>
+              <p>Añade los espaguetis al agua hirviendo y cocínalos según las instrucciones del paquete hasta que estén al dente.</p>
+            </div>
+            
+            <div class="flex">
+              <div class="step-number">5</div>
+              <p>Cuando la pasta esté lista, reserva una taza del agua de cocción y escurre la pasta.</p>
+            </div>
+            
+            <div class="flex">
+              <div class="step-number">6</div>
+              <p>Apaga el fuego de la sartén con el guanciale y añade la pasta escurrida. Mezcla bien para que la pasta se impregne de la grasa del guanciale.</p>
+            </div>
+            
+            <div class="flex">
+              <div class="step-number">7</div>
+              <p>Rápidamente (y con el fuego apagado), añade la mezcla de huevo y queso a la pasta, removiendo constantemente. La pasta caliente cocinará ligeramente los huevos, creando una salsa cremosa. Si la salsa está demasiado espesa, añade un poco del agua de cocción reservada para conseguir la consistencia deseada.</p>
+            </div>
+            
+            <div class="flex">
+              <div class="step-number">8</div>
+              <p>Sirve inmediatamente, espolvoreando con un poco más de queso Pecorino rallado y pimienta negra recién molida.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Información nutricional -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+          <h2 class="text-xl font-bold mb-6 pb-2 border-b border-gray-200">Información nutricional</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="text-center p-3 bg-gray-50 rounded-lg">
+              <p class="text-gray-500 text-sm">Calorías</p>
+              <p class="font-bold text-xl text-gray-800">520</p>
+              <p class="text-gray-500 text-xs">kcal</p>
+            </div>
+            <div class="text-center p-3 bg-gray-50 rounded-lg">
+              <p class="text-gray-500 text-sm">Proteínas</p>
+              <p class="font-bold text-xl text-gray-800">24</p>
+              <p class="text-gray-500 text-xs">g</p>
+            </div>
+            <div class="text-center p-3 bg-gray-50 rounded-lg">
+              <p class="text-gray-500 text-sm">Carbohidratos</p>
+              <p class="font-bold text-xl text-gray-800">58</p>
+              <p class="text-gray-500 text-xs">g</p>
+            </div>
+            <div class="text-center p-3 bg-gray-50 rounded-lg">
+              <p class="text-gray-500 text-sm">Grasas</p>
+              <p class="font-bold text-xl text-gray-800">22</p>
+              <p class="text-gray-500 text-xs">g</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Comentarios -->
+        <div class="bg-white rounded-xl shadow-md p-6">
+          <h2 class="text-xl font-bold mb-6 pb-2 border-b border-gray-200">Comentarios (8)</h2>
+          
+          <!-- Formulario de comentario -->
+          <div class="mb-8">
+            <textarea id="comment-text" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" rows="3" placeholder="Comparte tu experiencia con esta receta..."></textarea>
+            <div class="flex justify-between items-center mt-3">
+              <div class="flex items-center">
+                <span class="mr-2">Tu valoración:</span>
+                <div class="flex">
+                  <i class="fas fa-star text-gray-300 cursor-pointer hover:text-amber-400 text-xl mx-1 rating-star" data-rating="1"></i>
+                  <i class="fas fa-star text-gray-300 cursor-pointer hover:text-amber-400 text-xl mx-1 rating-star" data-rating="2"></i>
+                  <i class="fas fa-star text-gray-300 cursor-pointer hover:text-amber-400 text-xl mx-1 rating-star" data-rating="3"></i>
+                  <i class="fas fa-star text-gray-300 cursor-pointer hover:text-amber-400 text-xl mx-1 rating-star" data-rating="4"></i>
+                  <i class="fas fa-star text-gray-300 cursor-pointer hover:text-amber-400 text-xl mx-1 rating-star" data-rating="5"></i>
+                </div>
+              </div>
+              <button id="submit-comment" class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-lg font-bold transition-colors">
+                Comentar
+              </button>
+            </div>
+          </div>
+          
+          <!-- Lista de comentarios -->
+          <div class="space-y-6">
+            <!-- Comentario 1 -->
+            <div class="border-b border-gray-200 pb-6">
+              <div class="flex justify-between items-start mb-2">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold mr-3">
+                    A
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Ana Martínez</h4>
+                    <div class="flex items-center">
+                      <div class="flex text-amber-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                      <span class="text-gray-500 text-sm ml-2">hace 3 días</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="text-gray-700">¡Por fin una receta de carbonara auténtica! Sin nata, como debe ser. La preparé anoche y quedó espectacular. El truco de añadir el agua de cocción de la pasta realmente marca la diferencia en la textura de la salsa.</p>
+            </div>
+            
+            <!-- Comentario 2 -->
+            <div class="border-b border-gray-200 pb-6">
+              <div class="flex justify-between items-start mb-2">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold mr-3">
+                    R
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Roberto Sánchez</h4>
+                    <div class="flex items-center">
+                      <div class="flex text-amber-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                      </div>
+                      <span class="text-gray-500 text-sm ml-2">hace 1 semana</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="text-gray-700">Muy buena receta, aunque tuve problemas con la temperatura y se me cuajaron un poco los huevos. La próxima vez esperaré más tiempo antes de añadir la mezcla. El sabor era excelente a pesar de eso.</p>
+            </div>
+          </div>
+          
+          <div class="mt-6 text-center">
+            <button id="load-more-comments" class="text-amber-600 hover:text-amber-700 font-medium">
+              Cargar más comentarios
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Recetas relacionadas -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold mb-8 text-gray-900">Recetas relacionadas</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Receta relacionada 1 -->
+        <div class="recipe-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+          <div class="relative">
+            <img src="images/Pescado a la limeña.jpg" alt="Pescado a la limeña" class="w-full h-48 object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-bold mb-2 text-gray-900">Pescado a la limeña</h3>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center text-gray-500 text-sm">
+                <i class="fas fa-clock mr-1"></i>
+                <span>35 min</span>
+              </div>
+              <a href="receta-1.html" class="text-amber-600 hover:text-amber-700 font-medium flex items-center">
+                Ver receta <i class="fas fa-chevron-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Receta relacionada 2 -->
+        <div class="recipe-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+          <div class="relative">
+            <img src="images/Sushi variado.jpg" alt="Sushi variado" class="w-full h-48 object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-bold mb-2 text-gray-900">Sushi Variado Premium</h3>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center text-gray-500 text-sm">
+                <i class="fas fa-clock mr-1"></i>
+                <span>50 min</span>
+              </div>
+              <a href="receta-3.html" class="text-amber-600 hover:text-amber-700 font-medium flex items-center">
+                Ver receta <i class="fas fa-chevron-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Receta relacionada 3 -->
+        <div class="recipe-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+          <div class="relative">
+            <img src="images/risotto con setas.jpg" alt="Risotto de setas" class="w-full h-48 object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-bold mb-2 text-gray-900">Risotto de Setas Silvestres</h3>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center text-gray-500 text-sm">
+                <i class="fas fa-clock mr-1"></i>
+                <span>40 min</span>
+              </div>
+              <a href="#" class="text-amber-600 hover:text-amber-700 font-medium flex items-center">
+                Ver receta <i class="fas fa-chevron-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white pt-16 pb-8 mt-16">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Sabores del Mundo</h3>
+          <p class="text-gray-400">Descubre la riqueza culinaria de diferentes culturas a través de nuestras recetas auténticas y consejos de expertos.</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Enlaces rápidos</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-amber-400 transition-colors">Inicio</a></li>
+            <li><a href="recetas.html" class="text-gray-400 hover:text-amber-400 transition-colors">Recetas</a></li>
+            <li><a href="login.html" class="text-gray-400 hover:text-amber-400 transition-colors">Mi Cuenta</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-colors">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Categorías</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-colors">Italiana</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-colors">Mexicana</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-colors">Japonesa</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-amber-400 transition-colors">Vegana</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Síguenos</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors text-xl">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors text-xl">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors text-xl">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-amber-400 transition-colors text-xl">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500">© 2025 Sabores del Mundo. Todos los derechos reservados.</p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a href="#" class="text-gray-500 hover:text-gray-400 transition-colors">Política de privacidad</a>
+          <a href="#" class="text-gray-500 hover:text-gray-400 transition-colors">Términos de uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript para la funcionalidad -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Menú móvil
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+          mobileMenu.classList.toggle('hidden');
+          // Cambiar el icono del botón
+          const icon = menuBtn.querySelector('i');
+          if (icon.classList.contains('fa-bars')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+          } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      }
+
+      // Funcionalidad para el sistema de valoración
+      const ratingStars = document.querySelectorAll('.rating-star');
+      let currentRating = 0;
+      
+      ratingStars.forEach(star => {
+        star.addEventListener('click', function() {
+          const rating = parseInt(this.getAttribute('data-rating'));
+          currentRating = rating;
+          
+          // Actualizar estrellas
+          ratingStars.forEach(s => {
+            const starRating = parseInt(s.getAttribute('data-rating'));
+            if (starRating <= rating) {
+              s.classList.remove('text-gray-300');
+              s.classList.add('text-amber-400');
+            } else {
+              s.classList.remove('text-amber-400');
+              s.classList.add('text-gray-300');
+            }
+          });
+        });
+      });
+
+      // Botón de comentar
+      const submitCommentBtn = document.getElementById('submit-comment');
+      const commentText = document.getElementById('comment-text');
+      
+      if (submitCommentBtn && commentText) {
+        submitCommentBtn.addEventListener('click', function() {
+          const text = commentText.value.trim();
+          if (text && currentRating > 0) {
+            alert(`Gracias por tu comentario y valoración de ${currentRating} estrellas.`);
+            commentText.value = '';
+            // Resetear estrellas
+            ratingStars.forEach(s => {
+              s.classList.remove('text-amber-400');
+              s.classList.add('text-gray-300');
+            });
+            currentRating = 0;
+          } else {
+            alert('Por favor, escribe un comentario y selecciona una valoración.');
+          }
+        });
+      }
+
+      // Botones de acción
+      const saveRecipeBtn = document.getElementById('save-recipe');
+      const shareRecipeBtn = document.getElementById('share-recipe');
+      const printRecipeBtn = document.getElementById('print-recipe');
+      const adjustServingsBtn = document.getElementById('adjust-servings');
+      const loadMoreCommentsBtn = document.getElementById('load-more-comments');
+      
+      if (saveRecipeBtn) {
+        saveRecipeBtn.addEventListener('click', function() {
+          alert('Receta guardada en tus favoritos.');
+        });
+      }
+      
+      if (shareRecipeBtn) {
+        shareRecipeBtn.addEventListener('click', function() {
+          alert('Compartir esta receta (simulación).');
+        });
+      }
+      
+      if (printRecipeBtn) {
+        printRecipeBtn.addEventListener('click', function() {
+          window.print();
+        });
+      }
+      
+      if (adjustServingsBtn) {
+        adjustServingsBtn.addEventListener('click', function() {
+          const servings = prompt('Introduce el número de porciones (1-12):', '4');
+          if (servings && !isNaN(servings) && servings > 0 && servings <= 12) {
+            alert(`Ingredientes ajustados para ${servings} porciones.`);
+          }
+        });
+      }
+      
+      if (loadMoreCommentsBtn) {
+        loadMoreCommentsBtn.addEventListener('click', function() {
+          alert('Cargando más comentarios (simulación).');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

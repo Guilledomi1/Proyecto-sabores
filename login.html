@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabores del Mundo | Iniciar Sesión</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+  <!-- Barra de navegación oscura -->
+  <nav class="bg-gray-900 text-white shadow-xl sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+          <i class="fas fa-utensils text-2xl text-amber-400"></i>
+          <a href="/" data-spa-link class="text-2xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Sabores del mundo</a>
+        </div>
+
+        <!-- Menú principal -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="/" data-spa-link class="nav-link flex items-center py-2 px-1 hover:text-amber-300 transition-colors">
+            <i class="fas fa-home mr-2"></i> Inicio
+          </a>
+          <a href="/recetas.html" data-spa-link class="nav-link flex items-center py-2 px-1 hover:text-amber-300 transition-colors">
+            <i class="fas fa-book-open mr-2"></i> Recetas
+          </a>
+          <a href="/login.html" data-spa-link class="nav-link active flex items-center py-2 px-1 border-b-2 border-amber-400 font-medium">
+            <i class="fas fa-user mr-2"></i> Mi Cuenta
+          </a>
+        </div>
+
+        <!-- Menú móvil -->
+        <button id="menu-btn" class="md:hidden focus:outline-none text-2xl">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil desplegable -->
+    <div id="mobile-menu" class="md:hidden hidden bg-gray-800 px-6 py-4">
+      <div class="flex flex-col space-y-4">
+        <a href="/" data-spa-link class="nav-link flex items-center py-2 border-b border-gray-700">
+          <i class="fas fa-home mr-3"></i> Inicio
+        </a>
+        <a href="/recetas.html" data-spa-link class="nav-link flex items-center py-2 border-b border-gray-700">
+          <i class="fas fa-book-open mr-3"></i> Recetas
+        </a>
+        <a href="/login.html" data-spa-link class="nav-link active flex items-center py-2">
+          <i class="fas fa-user mr-3"></i> Mi Cuenta
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="min-h-screen flex items-center justify-center py-12 px-4">
+    <div class="w-full max-w-md">
+      <div class="bg-white shadow-xl rounded-xl overflow-hidden">
+        <!-- Encabezado con degradado -->
+        <div class="bg-gradient-to-r from-amber-500 to-orange-500 p-6 text-center text-white">
+          <h2 class="text-2xl font-bold">Bienvenido de vuelta</h2>
+          <p class="opacity-90">Ingresa a tu cuenta para guardar tus recetas favoritas</p>
+        </div>
+        
+        <!-- Formulario -->
+        <div class="p-8">
+          <form id="login-form">
+            <div class="mb-6">
+              <label for="email" class="block text-gray-700 font-medium mb-2">Correo electrónico</label>
+              <div class="relative">
+                <input type="email" id="email" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400 pl-10" placeholder="tucorreo@ejemplo.com" required>
+                <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+              </div>
+            </div>
+            
+            <div class="mb-6">
+              <label for="password" class="block text-gray-700 font-medium mb-2">Contraseña</label>
+              <div class="relative">
+                <input type="password" id="password" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400 pl-10" placeholder="••••••••" required>
+                <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+              </div>
+              <a href="#" class="text-sm text-amber-600 hover:text-amber-700 mt-2 inline-block">¿Olvidaste tu contraseña?</a>
+            </div>
+            
+            <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white py-3 rounded-lg font-bold transition-colors mb-4">
+              Iniciar Sesión
+            </button>
+            
+            <div class="text-center">
+              <p class="text-gray-600">¿No tienes una cuenta? <a href="#" class="text-amber-600 hover:text-amber-700 font-medium">Regístrate</a></p>
+            </div>
+          </form>
+          
+          <!-- Divisor -->
+          <div class="flex items-center my-6">
+            <div class="flex-grow border-t border-gray-300"></div>
+            <span class="mx-4 text-gray-500">o</span>
+            <div class="flex-grow border-t border-gray-300"></div>
+          </div>
+          
+          <!-- Redes sociales -->
+          <div class="grid grid-cols-2 gap-4">
+            <button class="bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium flex items-center justify-center transition-colors">
+              <i class="fab fa-facebook-f mr-2"></i> Facebook
+            </button>
+            <button class="bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg font-medium flex items-center justify-center transition-colors">
+              <i class="fab fa-google mr-2"></i> Google
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer (igual que en index.html) -->
+  <footer class="bg-gray-900 text-white pt-16 pb-8">
+    <!-- ... mismo footer que index.html ... -->
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <script>
+    // Manejo del formulario de login
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Aquí iría la lógica de autenticación
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      console.log('Iniciando sesión con:', email, password);
+      
+      // Simulación de redirección después de login
+      setTimeout(() => {
+        window.location.href = '/'; // O usar loadPage('/') para SPA
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
